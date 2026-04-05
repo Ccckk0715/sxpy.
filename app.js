@@ -10,77 +10,41 @@ const courses = [
   {
     id: "thinking-1",
     badge: "最受欢迎",
-    name: "XX思维训练营",
-    ageGrade: "适合 3-6 年级",
-    meta: ["小班直播", "实物教具", "每日打卡"],
+    name: "小学奥数思维营",
+    ageGrade: "适合 3-6 年级 · 趣味导向",
+    meta: ["小班直播", "可视化教具", "每日打卡"],
     priceOld: "¥ 3980",
     priceNew: "¥ 1680",
-    teacher: "李老师 · 5年教学经验",
+    teacher: "李老师 · 奥数竞赛背景",
     image:
       "https://images.unsplash.com/photo-1529070538774-1843cb3265df?auto=format&fit=crop&w=1200&q=60",
-    focus: "专注力/表达/做题习惯",
+    focus: "数感/推理/巧算与建模",
   },
   {
     id: "focus-1",
-    badge: "专注提升",
-    name: "专注力成长营",
-    ageGrade: "适合 2-5 年级",
-    meta: ["游戏化任务", "过程反馈", "家校共育"],
+    badge: "体系进阶",
+    name: "小学奥数进阶班",
+    ageGrade: "适合 4-6 年级 · 小升衔接",
+    meta: ["专题突破", "过程反馈", "家校共育"],
     priceOld: "¥ 2980",
     priceNew: "¥ 1280",
-    teacher: "王老师 · 6年教学经验",
+    teacher: "王老师 · 8年教学经验",
     image:
       "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1200&q=60",
-    focus: "专注力/课堂参与度",
+    focus: "计数几何/应用题/思维拓展",
   },
   {
     id: "expression-1",
-    badge: "表达训练",
-    name: "表达力提升课",
-    ageGrade: "适合 4-7 年级",
-    meta: ["分层训练", "口头表达", "复盘练习"],
+    badge: "初中数学",
+    name: "初中数学综合提升",
+    ageGrade: "适合 6-9 年级",
+    meta: ["函数与方程", "几何直观", "错题复盘"],
     priceOld: "¥ 3580",
     priceNew: "¥ 1480",
-    teacher: "陈老师 · 7年教学经验",
+    teacher: "陈老师 · 中考教研经验",
     image:
-      "https://images.unsplash.com/photo-1516627145493-5c7c4f0e5f2b?auto=format&fit=crop&w=1200&q=60",
-    focus: "表达/自信/结构化思维",
-  },
-];
-
-const teachers = [
-  {
-    id: "t1",
-    name: "李老师",
-    subtitle: "擅长：专注力与思维训练",
-    quote: "把枯燥变成可参与的训练，把结果变成可复盘的进步。",
-    exp: "5年教学经验",
-    education: "毕业院校：示例大学",
-    image:
-      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=1200&q=60",
-    shape: "28px 18px 26px 16px",
-  },
-  {
-    id: "t2",
-    name: "王老师",
-    subtitle: "擅长：学习习惯与课堂互动",
-    quote: "用目标拆解与过程反馈，让孩子学会“自己能做到”。",
-    exp: "6年教学经验",
-    education: "毕业院校：示例学院",
-    image:
-      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=1200&q=60",
-    shape: "18px 26px 16px 28px",
-  },
-  {
-    id: "t3",
-    name: "陈老师",
-    subtitle: "擅长：表达力与结构化训练",
-    quote: "让每一次表达都成为可成长的练习，而不是“碰运气”。",
-    exp: "7年教学经验",
-    education: "毕业院校：示例大学",
-    image:
-      "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=1200&q=60",
-    shape: "30px 14px 30px 14px",
+      "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=1200&q=60",
+    focus: "代数推理/几何证明/应试习惯",
   },
 ];
 
@@ -91,7 +55,7 @@ const testimonials = [
     child: "孩子：5年级",
     text: "最明显的是孩子上课更愿意参与了。老师反馈很清晰，家里也知道接下来怎么陪。",
     avatar:
-      "https://images.unsplash.com/photo-1547425260-76bcadfd4f2c?auto=format&fit=crop&w=256&q=60",
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=256&q=60",
   },
   {
     id: "q2",
@@ -121,7 +85,7 @@ const gallery = [
   {
     id: "g2",
     img:
-      "https://images.unsplash.com/photo-1516627145493-5c7c4f0e5f2b?auto=format&fit=crop&w=1200&q=60",
+      "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=1200&q=60",
     caption: "孩子作品：结构清晰，表达更自信。",
   },
   {
@@ -145,7 +109,7 @@ const gallery = [
   {
     id: "g6",
     img:
-      "https://images.unsplash.com/photo-1516627145493-5c7c4f0e5f2b?auto=format&fit=crop&w=1200&q=60",
+      "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=1200&q=60",
     caption: "打卡与复盘：坚持变成习惯。",
   },
 ];
@@ -253,38 +217,6 @@ function renderCourses() {
                 立即报名
               </button>
             </div>
-          </div>
-        </article>
-      `;
-    })
-    .join("");
-}
-
-function renderTeachers() {
-  const grid = $(".grid-3-strong");
-  if (!grid) return;
-
-  grid.innerHTML = teachers
-    .map((t) => {
-      return `
-        <article class="teacher-card">
-          <div class="teacher-media">
-            <img
-              src="${escapeAttr(t.image)}"
-              alt="${escapeAttr(t.name)}"
-              loading="lazy"
-              style="border-radius:${escapeAttr(t.shape)};"
-            />
-            <div class="teacher-overlay"></div>
-            <div class="teacher-hover">
-              <div style="font-weight:950;margin-bottom:6px;">${escapeHtml(t.exp)}</div>
-              <div style="color:rgba(255,255,255,.86);font-weight:700;line-height:1.7">${escapeHtml(t.education)}</div>
-              <div style="margin-top:10px;color:rgba(255,255,255,.92);font-weight:900;line-height:1.7">“${escapeHtml(t.quote)}”</div>
-            </div>
-          </div>
-          <div class="teacher-name">
-            <b>${escapeHtml(t.name)}</b>
-            <span>${escapeHtml(t.subtitle)}</span>
           </div>
         </article>
       `;
@@ -593,6 +525,26 @@ function initAnimations() {
   els.forEach((el) => io.observe(el));
 }
 
+function initPlayLab() {
+  const tabs = $all("[data-play-tab]");
+  if (!tabs.length) return;
+
+  function activate(id) {
+    tabs.forEach((btn) => {
+      const on = btn.dataset.playTab === id;
+      btn.classList.toggle("is-active", on);
+      btn.setAttribute("aria-selected", String(on));
+    });
+    $all("[data-play-panel]").forEach((panel) => {
+      panel.hidden = panel.dataset.playPanel !== id;
+    });
+  }
+
+  tabs.forEach((btn) => {
+    btn.addEventListener("click", () => activate(btn.dataset.playTab));
+  });
+}
+
 function initCarousel() {
   const leftBtn = $('[data-carousel-left]');
   const rightBtn = $('[data-carousel-right]');
@@ -696,7 +648,6 @@ function initFloating() {
 // -----------------------------
 function init() {
   renderCourses();
-  renderTeachers();
   renderTestimonials();
   renderGallery();
 
@@ -707,6 +658,7 @@ function init() {
   initBurger();
   initScrollSpy();
   initAnimations();
+  initPlayLab();
   initCarousel();
   initCourseActions();
   initCopyButtons();
