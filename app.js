@@ -10,9 +10,9 @@ const courses = [
   {
     id: "thinking-1",
     badge: "最受欢迎",
-    name: "小学奥数思维营",
-    ageGrade: "适合 3-6 年级 · 趣味导向",
-    meta: ["小班直播", "可视化教具", "每日打卡"],
+    name: "小学奥数班",
+    ageGrade: "适合 1-6 年级 · 趣味导向",
+    meta: ["小组课", "锻炼思维能力", "培养思考习惯"],
     priceOld: "¥ 3980",
     priceNew: "¥ 1680",
     teacher: "李老师 · 奥数竞赛背景",
@@ -23,8 +23,8 @@ const courses = [
   {
     id: "focus-1",
     badge: "体系进阶",
-    name: "小学奥数进阶班",
-    ageGrade: "适合 4-6 年级 · 小升衔接",
+    name: "初中数学培优",
+    ageGrade: "适合 7-9 年级 ",
     meta: ["专题突破", "过程反馈", "家校共育"],
     priceOld: "¥ 2980",
     priceNew: "¥ 1280",
@@ -35,10 +35,10 @@ const courses = [
   },
   {
     id: "expression-1",
-    badge: "初中数学",
-    name: "初中数学综合提升",
-    ageGrade: "适合 6-9 年级",
-    meta: ["函数与方程", "几何直观", "错题复盘"],
+    badge: "初中科学培优",
+    name: "初中科学综合提升",
+    ageGrade: "适合 7-9 年级",
+    meta: ["科学思维", "科学知识", "科学表达"],
     priceOld: "¥ 3580",
     priceNew: "¥ 1480",
     teacher: "陈老师 · 中考教研经验",
@@ -210,12 +210,11 @@ function renderCourses() {
             <div class="course-card-meta">${meta}</div>
             <div class="course-card-age">${escapeHtml(c.ageGrade)}</div>
             <div class="course-card-actions">
-              <button class="link-soft" type="button" data-action="detail" data-course-id="${escapeAttr(c.id)}">
-                查看详情
-              </button>
-              <button class="btn btn-primary" type="button" data-action="book" data-course-id="${escapeAttr(c.id)}">
-                立即报名
-              </button>
+              <a
+                class="btn btn-primary w100 course-card-contact"
+                href="#contact"
+                data-course-id="${escapeAttr(c.id)}"
+              >预约咨询</a>
             </div>
           </div>
         </article>
@@ -287,51 +286,6 @@ function escapeAttr(str) {
   return escapeHtml(str);
 }
 
-function updateCourseDetail(courseId) {
-  const c = getCourseById(courseId);
-  if (!c) return;
-  selectedCourseId = c.id;
-
-  const nameEl = $('[data-course-name]');
-  const gradeEl = $('[data-course-grade]');
-  const metaWrap = $('[data-course-meta]');
-  const oldEl = $('[data-course-price-old]');
-  const newEl = $('[data-course-price-new]');
-  const teacherEl = $('[data-course-teacher]');
-
-  if (nameEl) nameEl.textContent = c.name;
-  if (gradeEl) gradeEl.textContent = c.ageGrade;
-  if (oldEl) oldEl.textContent = c.priceOld;
-  if (newEl) newEl.textContent = c.priceNew;
-  if (teacherEl) teacherEl.textContent = c.teacher;
-
-  if (metaWrap) {
-    metaWrap.innerHTML = c.meta
-      .map((t) => `<span class="tag tag-strong">${escapeHtml(t)}</span>`)
-      .join("");
-  }
-
-  // 更新课程顶部背景（轻微差异：用图片做渐变影子，不拉重资源）
-  const heroBg = $(".course-hero-bg");
-  if (heroBg) {
-    heroBg.style.background = `
-      radial-gradient(900px 450px at 15% 0%, rgba(245,166,35,.22), rgba(245,166,35,0)),
-      radial-gradient(900px 450px at 85% 0%, rgba(255,107,53,.18), rgba(255,107,53,0)),
-      linear-gradient(135deg, rgba(26,43,76,.10), rgba(26,43,76,.02))
-    `;
-  }
-
-  const modalCourse = $('[data-modal-course]');
-  if (modalCourse) modalCourse.textContent = `已选：${c.name}`;
-}
-
-function scrollToCourseDetail(courseId) {
-  updateCourseDetail(courseId);
-  const el = $("#course-detail");
-  if (!el) return;
-  el.scrollIntoView({ behavior: "smooth", block: "start" });
-}
-
 // -----------------------------
 // Modal
 // -----------------------------
@@ -347,7 +301,6 @@ let modalLastFocus = null;
 
 function openModal(context) {
   if (!modal) return;
-  updateCourseDetail(selectedCourseId);
   updateSpotsUI();
 
   modalLastFocus = document.activeElement;
@@ -566,18 +519,10 @@ function initCarousel() {
 
 function initCourseActions() {
   document.addEventListener("click", (e) => {
-    const btn = e.target.closest("[data-action]");
-    if (!btn) return;
-    const action = btn.dataset.action;
-    const courseId = btn.dataset.courseId;
-    if (!courseId) return;
-    if (action === "detail") {
-      scrollToCourseDetail(courseId);
-    } else if (action === "book") {
-      selectedCourseId = courseId;
-      scrollToCourseDetail(courseId);
-      showToast("已为你定位到课程详情区：请到联系页通过电话/微信咨询。");
-    }
+    const link = e.target.closest("a.course-card-contact[href='#contact']");
+    if (!link) return;
+    const courseId = link.dataset.courseId;
+    if (courseId) selectedCourseId = courseId;
   });
 }
 
@@ -651,7 +596,6 @@ function init() {
   renderTestimonials();
   renderGallery();
 
-  updateCourseDetail(selectedCourseId);
   updateSpotsUI();
 
   initHeader();
